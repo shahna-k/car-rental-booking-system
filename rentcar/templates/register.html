@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html lang="en">
+{% block content %}
+<style>
+    .container-img
+    {
+      background-image:url("{% static 'images/bg22.jpg' %}");
+      height:100vh;
+      background-size:cover;
+      background-attachment:fixed;
+    }
+</style>
+
+<div class="container-img p-5">
+<div class="container" style="height:480px;width:500px;padding-top:90px;">
+<h1 class="text-center text-white" style="font-family:cursive;">SignUp</h1>
+<form method="POST" style="margin-bottom:120px;color:white;">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label  class="form-label fw-bold">Username</label>
+        <input type="text" class="form-control" name="u" placeholder="Enter the username:">
+    </div>
+    <div class="mb-3">
+        <label  class="form-label fw-bold">Password</label>
+        <input type="password" class="form-control" name="p"  placeholder="Enter the password:">
+    </div>
+    <div class="mb-3">
+        <label  class="form-label fw-bold">Confirm Password</label>
+        <input type="password" class="form-control" name="cp"  placeholder="Enter the password:">
+    </div>
+    <div class="mb-3">
+        <label  class="form-label fw-bold">Email</label>
+        <input type="email" class="form-control" name="e"  placeholder="Enter the email:">
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary fw-bold" style="margin-left:200px;">Submit</button>
+    </div>
+</form>
+</div>
+</div>
+{% endblock %}
+</html>

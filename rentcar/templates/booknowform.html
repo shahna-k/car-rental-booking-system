@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html lang="en">
+{% block content %}
+<style>
+    .container-img
+    {
+      background-image:url("{% static 'images/bg22.jpg' %}");
+      height:100vh;
+      background-size:cover;
+      background-attachment:fixed;
+    }
+</style>
+
+<div class="container-img p-5 text-white">
+   <div class="container" style="height:480px;width:500px;padding-top:20px;margin-top:70px;">
+       <h2 class="text-center mb-4" style="font-family:cursive;">Book Now - {{ car.name }}</h2>
+     <div class="container mt-2" style="height:240px;width:240px;">
+        <img src="{{car.image.url}}" height="220px" width="220px">
+     </div>
+<form method="POST" enctype="multipart/form-data" style="margin-bottom:120px;margin-left:120px;">
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <button class="btn btn-info mt-3 fw-bold" style="margin-left:70px;color:white;" type="submit">Book Now</button>
+</form>
+   </div>
+</div>
+{% endblock %}
+</html>

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .container-img
+    {
+      background-image:url("{% static 'images/bg22.jpg' %}");
+      height:100vh;
+      background-size:cover;
+      background-attachment:fixed;
+    }
+</style>
+
+<div class="container-img p-5">
+<div class="container-fluid" style="margin-top:150px;margin-bottom:150px;">
+    <center>
+        <h3 class="text-center text-info">{{m}}</h3>
+        <h5 class="text-center text-white">Thank You...</h5>
+        <h6><a href="{% url 'car:allcategories' %}" style="color:white;">Continue Booking</a></h6>
+    </center>
+</div>
+</div>
+{% endblock %}

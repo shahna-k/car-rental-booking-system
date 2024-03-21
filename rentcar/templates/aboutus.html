@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html lang="en">
+{% block content %}
+<div class="container m-5">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 text-center" style="margin-top:100px;margin-bottom:100px;">
+                <h2>About Us</h2>
+                <p align="left">
+                    Getting dressed up and travelling with good friends makes for a shared, unforgettable experience.
+                    This adventure isn’t about change but it seems to be an inevitability. We are ClickNRoll Car
+                    Rental Best Car Rental site and car hire. All in one service.
+                </p>
+                <p align="left">
+                    With offices across Trivandrum, Cochin, Calicut and more, we are the top choice for travelers
+                    seeking to rent a car to fully immerse in Kerala's beauty. Our fleet ranges from hatchbacks to
+                    premium vehicles, providing you the flexibility to create your own journey.
+                </p>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12" style="margin-top:100px;margin-bottom:100px;">
+                <img src="{% static 'images/bg11.jpg' %}" style="height:300px;width:500px;">
+            </div>
+        </div>
+</div>
+{% endblock %}
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html lang="en">
+{% block content %}
+<style>
+      .card-img-top:hover
+      {
+        transform:scale(1.1);
+      }
+      .image-container
+      {
+        position: relative;
+      }
+      .image-container img
+      {
+        display: block;
+      }
+      .overlay-text
+      {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        color: white;
+        padding: 10px 20px;
+        font-size:36px;
+        text-align: center;
+      }
+</style>
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="background-color:rgba(0,0,0,0);">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/car1.jpg' %}" class="d-block w-100" alt="..." style="height:595px;">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 style="font-size:33px;font-family: cursive;">Unlock Your Destination with Our Rentals</h5>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/car2.jpg' %}" class="d-block w-100" alt="..." style="height:595px;">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 style="font-size:35px;font-family: cursive;margin-bottom:50px;">Redefine Your Road Trips</h5>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/car3.jpg' %}" class="d-block w-100" alt="..." style="height:595px;">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 style="font-size:33px;font-family: cursive;">Every Drive Becomes an Epic Story</h5>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<div class="container m-5">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 text-center">
+                <h2>About Us</h2>
+                <p align="left">
+                    Getting dressed up and travelling with good friends makes for a shared, unforgettable experience.
+                    This adventure isn’t about change but it seems to be an inevitability. We are ClickNRoll Car
+                    Rental Best Car Rental site and car hire. All in one service.
+                </p>
+                <p align="left">
+                    With offices across Trivandrum, Cochin, Calicut and more, we are the top choice for travelers
+                    seeking to rent a car to fully immerse in Kerala's beauty. Our fleet ranges from hatchbacks to
+                    premium vehicles, providing you the flexibility to create your own journey.
+                </p>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <img src="{% static 'images/bg11.jpg' %}" style="height:300px;width:500px;">
+            </div>
+        </div>
+</div>
+<div class="container-fluid text-white p-5" style="background-color:navy;">
+        <h3 align="center" style="margin-top:10px;margin-bottom:8px;">Why Choose Us</h3>
+        <h4 align="center" style="margin-top:8px;margin-bottom:8px;">Better Way to Rent Your Perfect Cars</h4>
+        <p align="center">Explore our cars & rental services</p>
+<div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-lg-4 col-md-12 col-sm-12">
+              <i class="fa-solid fa-car fa-2x mb-4" style="margin-left: 150px;"></i>
+                <h3 class="text-center">Variety of Car Brands</h3>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12">
+              <i class="fa-regular fa-handshake fa-2x mb-4" style="margin-left: 150px;"></i>
+                <h3 align="center">Select the Best Deal</h3>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12">
+              <i class="fa fa-heart fa-2x mb-4" style="margin-left: 170px;"></i>
+                <h3 align="center">Awesome customer support</h3>
+            </div>
+        </div>
+</div>
+</div>
+<div class="container-fluid" style="background-color: white;">
+    <h5 class="text-center" style="color:blue;;padding-top:20px;">What we offer</h5>
+      <h3 align="center" style=" padding-bottom: 15px;color:navy;">Featured Vehicles</h3>
+</div>
+
+<div class="container-fluid" style="margin-bottom:40px;">
+  <div class="row" style="margin-left:50px;">
+    {% for i in f %}
+    <div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom:20px;">
+        <div class="card" style="width: 18rem;height:22rem;">
+            <img src="{{i.image.url}}" height="380px"width="250px" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{i.name}}</h5>
+                <p class="card-text">Rent/day:Rs.{{i.rent}}</p>
+                <a href="{% url 'order:booknow' i.name %}" class="btn btn-primary" style="color:white;width:120px;">Book Now</a>
+                <a href="{% url 'car:details' i.name %}" class="btn" style="background-color: #2aa89e;width:120px;color:white;margin-left:5px;">Details</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="container-fluid text-white p-5 mt-5 mb-5" style="background-color:navy;">
+        <h3 align="center" style="margin-bottom: 20px;">Our Services</h3>
+<div class="container mt-5 mb-3">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <i class="fa-solid fa-face-grin-hearts fa-2x mb-4" style="margin-left: 110px;"></i>
+                <h3 class="text-center" style="font-size:25px;">Wedding Ceremony</h3>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <i class="fa-solid fa-route fa-2x mb-4" style="margin-left: 110px;"></i>
+                <h3 align="center" style="font-size:25px;">City Transfer</h3>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <i class="fa-solid fa-car fa-2x mb-4" style="margin-left: 110px;"></i>
+                <h3 align="center" style="font-size:25px;">Airport Transfer</h3>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <i class="fa-solid fa-route fa-2x mb-4" style="margin-left: 110px;"></i>
+                <h3 align="center" style="font-size:25px;">Whole City Tour</h3>
+            </div>
+        </div>
+</div>
+</div>
+
+<div class="image-container">
+    <img src="{% static 'images/bg22.jpg' %}" style="height:500px;width:100%;" alt="image">
+    <div class="overlay-text">Explore Our Fleet of Rental Delights</div>
+</div>
+<div class="container-fluid text-white" style="background-color:navy;">
+        <h2 align="center" style="margin-top:40px;margin-bottom: 20px;">Our Cars</h2>
+</div>
+
+<div class="container-fluid" style="margin-bottom:100px;">
+  <div class="row" style="margin-left:50px;">
+    {% for i in c %}
+    <div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom:20px;">
+        <div class="card" style="width: 18rem;height:22rem;">
+            <img src="{{i.image.url}}"height="380px"width="250px" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h4 class="card-title text-center">{{i.name}}</h4>
+                <a href="{% url 'car:allproducts' i.name %}" class="btn btn-primary" style="position:relative;left:40%;">View</a>
+            </div>
+        </div>
+    </div>
+  {% endfor %}
+  </div>
+</div>
+{% endblock %}
+</html>

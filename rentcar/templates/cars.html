@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html lang="en">
+
+{% block content %}
+<style>
+      .card-img-top:hover
+      {
+        transform:scale(1.1);
+      }
+</style>
+
+<div class="container-fluid" style="margin-bottom:30px;margin-top:80px;">
+    <img src="{{c.image.url}}" height="450px" width="100%";>
+</div>
+
+<div class="container-fluid mt-2" style="margin-bottom:50px;">
+    <h3 class="text-center fw-bold">{{c.name}}</h3>
+</div>
+
+<div class="container-fluid mt-1 rounded rounded-5" style="margin-bottom:100px;">
+  <div class="row" style="margin-left:50px;">
+    {% for i in p %}
+    <div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom:20px;">
+      <div class="card" style="width: 18rem;height:22rem;">
+         <img src="{{i.image.url}}"height="350px"width="400px" class="card-img-top p-2" alt="...">
+        <div class="card-body">
+          <h4 class="card-title text-center">{{i.name}}</h4>
+          <h5 class="text-center">Rent/day: Rs.{{i.rent}}</h5>
+          <a href="{% url 'car:details' i.name %}" class="btn btn-primary" style="position:relative;left:35%;font-weight:bold;">Details</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+</html>

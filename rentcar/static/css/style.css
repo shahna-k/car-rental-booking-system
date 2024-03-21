@@ -1,0 +1,47 @@
+body
+{
+background-color:#e8e8e8;
+color:purple;
+}
+
+.navbar-light .navbar-nav .nav-link,.navbar-light .navbar-brand {
+   color:white;
+   font-weight:bold;
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: cyan;
+}
+.nav-link:focus, .nav-link:hover {
+    color: cyan;
+}
+a:hover {
+    color: cyan;
+}
+.nav-link {
+    display: block;
+    padding: .5rem 1rem;
+    color: cyan;
+    text-decoration: none;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+a {
+    color: white;
+    text-decoration: underline;
+}
+*, ::after, ::before {
+    box-sizing:border-box;
+}
+
+.nav-link:visited,.nav-link{
+     border-bottom:2px solid transparent;
+}
+
+.nav-link:hover, .nav-link:active{
+     border-bottom:2px solid cyan;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    color: cyan;
+    background-color: navy;
+}
